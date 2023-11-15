@@ -15,7 +15,7 @@ pipeline {
                 script {
                     def scannerHome = tool 'SonarQube'
                     withSonarQubeEnv('SonarQube') {
-                        def scannerCmd = "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${SONAR_PROJECT_KEY} -Dsonar.sources=${SONAR_SOURCES}"
+                        def scannerCmd = "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=OWASP -Dsonar.sources=."
                         echo "SonarQube Scanner Command: ${scannerCmd}"
                         def scannerStatus = sh script: scannerCmd, returnStatus: true
                         if (scannerStatus != 0) {
