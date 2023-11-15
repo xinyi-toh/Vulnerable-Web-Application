@@ -7,10 +7,10 @@ pipeline {
             }
         }
         stage('Code Quality Check via SonarQube') {
-            environment {
-                SONAR_PROJECT_KEY = 'OWASP'
-                SONAR_SOURCES = '.'
-            }
+            // environment {
+            //     SONAR_PROJECT_KEY = 'OWASP'
+            //     SONAR_SOURCES = '.'
+            // }
             steps {
                 script {
                     def scannerHome = tool 'SonarQube'
