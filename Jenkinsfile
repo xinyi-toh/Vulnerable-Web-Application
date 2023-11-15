@@ -16,6 +16,7 @@ pipeline {
                     def scannerHome = tool 'SonarQube'
                     withSonarQubeEnv('SonarQube') {
                         def scannerCmd = "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${SONAR_PROJECT_KEY} -Dsonar.sources=${SONAR_SOURCES}"
+                        echo "SonarQube Scanner Command: ${scannerCmd}"
                         def scannerStatus = sh script: scannerCmd, returnStatus: true
                         if (scannerStatus != 0) {
                             error "SonarQube scanner failed with exit code: ${scannerStatus}"
